@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TopBar from '../TopBar';
+import * as C from './styles';
 
 interface IProps {
   children?: React.ReactNode;
@@ -9,9 +10,11 @@ interface IProps {
 function Layout({ children }: IProps) {
   return (
     <>
-    <TopBar />
-    aaa
-      {children}
+      <TopBar />
+      <C.Container>
+        aaa
+        {children}
+      </C.Container>
     </>
   );
 }
