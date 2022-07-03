@@ -12,7 +12,6 @@ function Layout({ children }: IProps) {
     <>
       <TopBar />
       <C.Container>
-        aaa
         {children}
       </C.Container>
     </>

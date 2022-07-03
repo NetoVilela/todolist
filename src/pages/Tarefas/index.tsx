@@ -1,11 +1,11 @@
 import Layout from '../../components/Layout';
 
-const CreditosPage = () => {
+const TarefasPage = () => {
   return (
     <Layout>
-      CreditosPage
+      TarefasPage
     </Layout>
   );
 }
 
-export default CreditosPage;
+export default TarefasPage;

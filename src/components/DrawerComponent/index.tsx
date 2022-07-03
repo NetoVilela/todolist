@@ -1,5 +1,14 @@
 import { useState } from 'react';
-import { Drawer, IconButton, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { 
+  Box,
+  Drawer, 
+  IconButton, 
+  List, 
+  ListItemButton, 
+  ListItemIcon, 
+  ListItemText
+} from '@mui/material';
+import Options from '../TopBar/Options';
 import MenuIcon from '@mui/icons-material/Menu';
 
 const DrawerComponent = () => {
@@ -10,6 +19,11 @@ const DrawerComponent = () => {
       <Drawer
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
+        variant="temporary"
+        sx={{
+          display: { xs: 'block', sm: 'none' },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 180 },
+        }}
       >
         <List>
           <ListItemButton>
@@ -17,11 +31,21 @@ const DrawerComponent = () => {
               <ListItemText> Login</ListItemText>
             </ListItemIcon>
           </ListItemButton>
+          <Options mobile={true} />
         </List>
       </Drawer>
-      <IconButton onClick={() => setOpenDrawer(!openDrawer)}>
-        <MenuIcon />
-      </IconButton>
+
+      <Box
+        sx={{ marginLeft: '20px' }}
+      >
+        <IconButton
+          color="inherit"
+          onClick={() => setOpenDrawer(!openDrawer)}>
+          <MenuIcon />
+        </IconButton>
+      </Box>
+
+
     </>
   )
 }

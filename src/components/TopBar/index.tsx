@@ -4,28 +4,24 @@ import { AppBar, Toolbar, Tabs, Tab, Button } from '@mui/material';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import DrawerComponent from '../DrawerComponent';
 import LinkCustomized from '../LinkCustomized';
+import { Box } from '@mui/system';
+
+import Options from './Options';
 
 const TopBar = () => {
-  const [value, setValue] = useState(0);
-  const [valueAction, setValueAction] = useState(false);
 
   return (
     <AppBar sx={{ background: '#0A1929' }} position="static">
-      <Toolbar>
-        <FactCheckIcon sx={{ marginRight: 5 }} />
 
-        <Tabs textColor="inherit" value={value} onChange={(e, value) => setValue(value)} indicatorColor="primary">
-          <Tab
-            label="Início"
-            component={Link}
-            to={'/home'}
-          />
-          <Tab
-            label="Créditos"
-            component={Link}
-            to={'/login'}
-          />
-        </Tabs>
+      <Toolbar
+        sx={{
+          display: { xs: 'none', sm: 'flex' }
+        }}
+      >
+
+        <FactCheckIcon sx={{ marginRight: 5 }} />
+        <Options />
+
 
         <Button sx={{ marginLeft: 'auto', color: '#fff' }} size='small' variant="contained" >
           <LinkCustomized color="#fff" to="/login"> Login </LinkCustomized>
@@ -35,7 +31,15 @@ const TopBar = () => {
         </Button>
 
       </Toolbar>
-      <DrawerComponent />
+
+      <Box
+        sx={{
+          display: { xs: 'block', sm: 'none' },
+        }}
+      >
+        <DrawerComponent />
+      </Box>
+
     </AppBar>
   )
 }
